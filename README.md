@@ -23,7 +23,7 @@
   - アーキテクチャの項とほぼ重複するので省略(現在は64bitが主流)
 - シリアルポートの有無
   - どのようなコンピューターでも、基本的にシリアルポートは存在します。（だって、ないと開発者がつらいので…。）しかし、「最終製品でも容易にアクセスできる」シリアルポートを搭載するマシンは意外と少ないものです。
-  - 多くのノートPCの場合、筐体を開けずにシリアルポートを取ることは難しいでしょう。（Chromebookは[仕様が公開されている特殊なUSBケーブル](https://chromium.googlesource.com/chromiumos/third_party/hdctools/+/HEAD/docs/ccd.md#making-your-own-suzyq)をつなぐと、USB-C端子を経由してシリアルポートをとることができるものが多いですが、やはり難易度は少し高めです。）
+  - 多くのノートPCの場合、筐体を開けずにシリアルポートを取ることは難しいでしょう。（Chromebookは[仕様が公開されている特殊なUSBケーブル](https://chromium.googlesource.com/chromiumos/third_party/hdctools/+/HEAD/docs/ccd.md#making-your-own-suzyq)をつなぐと、USB-C端子を経由してシリアルポートをとることができるものが多いですが、やはり難易度は少し高めです。ちなみにx86_64だとこの方法でもうまく取れない可能性が高いです…なんとかならないかなあ…（なんとかするんだよ！））
   - シングルボードPCやデスクトップマシンは、シリアルポートのピンがボード上には存在しているケースが多いでしょう。しかし、小型のマシンになればなるほど、はんだ付けが必要になったりと、難易度は高めになります。
   - 確実にシリアルポートのピンが生えていることがピン配置からわかるシングルボードコンピューターか、9-pinのRS232Cポートが生えているデスクトップ/ノートPCを手に入れると、便利かもしれません。
 - キーボードの接続方法(PS/2, USB, etc...)
@@ -38,5 +38,49 @@
   - 仕様が公開されている上に、PCI拡張カードとして狙い撃ちで購入しやすいのがIntel社のNICでしょう。実装例もGitHubを漁ればある程度出てきます。
   - USBイーサネット、動かしたいですよねえ！！多くの場合はカニさんチップが、そうでなければAX88179のようなチップが載っていることが多いです。デバイスとの通信プロトコルに関しては、一応USB-CDC ECNとして仕様は存在するのですが、多くのNICは[RNDIS](https://learn.microsoft.com/ja-jp/windows-hardware/drivers/network/remote-ndis-communication)というMicrosoft社が公開している仕様を利用してやりとりをしているようです。ぜひ実装に挑戦してみてくださいね！(その前にまずUSBホストコントローラのドライバを書く必要がありますが…がんばれ！！！)
 
+## 未確認だが気になっているデバイス
+
+### AAEON社のx86_64 SBC
+```
+- arch: x86_64
+- firmware: UEFI BIOS
+- serial: UART pin available
+- usb: 3.0 (xhci)
+```
+- https://www.aaeon.com/en/c/embedded-single-board-computers/
+- [2011年からASUSグループの傘下に入ったらしい](https://www.aaeon.com/en/about/company-profile)、組み込み/工業向けコンピューターを作っている会社のボード。
+- 公式のeShopからだと日本に発送できないっぽいので、日本での販売代理店である[Mouser Electronicsから購入](https://www.mouser.jp/c/?m=AAEON)するのがよい。（購入できること自体は2023年にhikaliumが実証済み。）
+- 動作検証が終わり次第、情報を追記するのでお待ちを…。
+
 ## おすすめ/動作実績のあるボードたち
-WIP...
+
+### GPD Micro PC
+
+```
+- arch: x86_64
+- firmware: UEFI BIOS
+- serial: RS232C port available (COM2)
+- usb: 3.0 (xhci)
+```
+
+- https://gpd-direct.jp/pages/gpd-micropc
+- 超小型ノートPCでxHCIサポート、UEFI、シリアルポートの3つを備えるデバイスはなかなかない。
+- hikaliumは古い世代(2021版ではないほう)を持っていた。ただし、バッテリーが放置していたらだめになっていたので、バッデリーを外して運用している。
+- キーボードの接続が特殊で、内蔵されているキーボードを自作OSから制御できた報告例はまだない（はず）。間違っていたらPull-Requestを送ってください！
+- スマホのディスプレイを流用しているのか、画面が90度回転した状態で映るため、ソフトウエア側での対処か、首を曲げるなどの対処が必要。
+
+## 製造終了 / 入手困難
+
+### MinnowBoard シリーズ
+
+```
+- arch: x86_64
+- firmware: UEFI BIOS
+- serial: UART pin available
+- usb: 3.0 (xhci)
+```
+
+- https://www.minnowboard.org/minnowboard-turbot/technical-specs/
+- 2020年頃までの自作OS界では、とても便利でお手頃価格のデバイスとして有名だった。
+- xHCIサポート、シリアルポートあり、画面出力もある、便利なデバイスだった。
+- 2023年現在は、公式経路での購入が困難になっている。転売や中古販売には十分に気をつけましょう！
