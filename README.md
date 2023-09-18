@@ -40,17 +40,24 @@
 
 ## 未確認だが気になっているデバイス
 
-### AAEON社のx86_64 SBC
+### AAEON UP Squared V2
 ```
 - arch: x86_64
 - firmware: UEFI BIOS
 - serial: UART pin available
 - usb: 3.0 (xhci)
 ```
+- https://www.mouser.jp/ProductDetail/AAEON-UP/UPN-EHLCN2-A10-0232
+- https://up-board.org/up-squared-v2/#TechSpecs
 - https://www.aaeon.com/en/c/embedded-single-board-computers/
 - [2011年からASUSグループの傘下に入ったらしい](https://www.aaeon.com/en/about/company-profile)、組み込み/工業向けコンピューターを作っている会社のボード。
 - 公式のeShopからだと日本に発送できないっぽいので、日本での販売代理店である[Mouser Electronicsから購入](https://www.mouser.jp/c/?m=AAEON)するのがよい。（購入できること自体は2023年にhikaliumが実証済み。）
 - 動作検証が終わり次第、情報を追記するのでお待ちを…。
+- 電源が付属していないので注意。N6210のモデルの場合、22W消費すると同封の紙には書いてあった。12V3A(=36W)でバレルコネクタの電源が手元にあったので、それを使ったところ起動できた。
+- 価格は2023-09にhikaliumが購入した際は、送料無料で4万円行かない程度だった。
+- Mouserで409-EP-PS12V6A72WFJの品番で電源アダプタも売っていることを発見した(72W)。これを買うのが楽かもしれない。
+- 2.5 mm Barrel Plug (2.5x5.5)
+- BIOSはAMIのものがデフォルトで入っていた。EDK2に書き換えることもできるっぽい？（未検証）([GitHub](https://github.com/up-board/up-community/wiki/Firmware)を参照)
 
 ## おすすめ/動作実績のあるボードたち
 
