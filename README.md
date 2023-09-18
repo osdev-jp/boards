@@ -58,6 +58,7 @@
 - Mouserで409-EP-PS12V6A72WFJの品番で電源アダプタも売っていることを発見した(72W)。これを買うのが楽かもしれない。（未確認情報）
 - 2.5 mm Barrel Plug (2.5x5.5)
 - BIOSはAMIのものがデフォルトで入っていた。EDK2に書き換えることもできるっぽい？（未検証）([GitHub](https://github.com/up-board/up-community/wiki/Firmware)を参照)
+- 一応hikaliumの自作OSである[WasabiOS]がブートして画面描画も動作した。（途中でフリーズする問題を現在デバッグ中）
 
 ## おすすめ/動作実績のあるボードたち
 
