@@ -47,7 +47,7 @@
 - serial: UART pin available
 - usb: 3.0 (xhci)
 ```
-- https://www.mouser.jp/ProductDetail/AAEON-UP/UPN-EHLCN2-A10-0232
+- [https://www.mouser.jp/ProductDetail/AAEON-UP/UPN-EHLCN2-A10-0232](https://www.mouser.jp/ProductDetail/AAEON-UP/UPN-EHLCN2-A10-0232?qs=doiCPypUmgHT531cWOqQgg%3D%3D)
 - https://up-board.org/up-squared-v2/#TechSpecs
 - https://www.aaeon.com/en/c/embedded-single-board-computers/
 - [2011年からASUSグループの傘下に入ったらしい](https://www.aaeon.com/en/about/company-profile)、組み込み/工業向けコンピューターを作っている会社のボード。
