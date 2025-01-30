@@ -40,6 +40,12 @@
 
 ## 未確認だが気になっているデバイス
 
+### ODROID-H series
+
+https://www.hardkernel.com/product-category/odroid-board/x86/
+
+PG_MANAさんからの情報。UARTも出てる。韓国から送られてくるらしい。割とよさそう。そのうち買う(hikalium)。
+
 ### AAEON UP Squared V2
 ```
 - arch: x86_64
